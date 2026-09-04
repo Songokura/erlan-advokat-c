@@ -1,0 +1,7 @@
+# Прототип на показ клиенту (вариант C). Пока страница не принята и не переехала
+# на рабочий домен, в поиск её не отдаём. Перед боевым запуском заменить
+# на Allow и убрать meta robots noindex из index.html.
+User-agent: *
+Disallow: /
+
+Sitemap: https://songokura.github.io/erlan-advokat-c/sitemap.xml

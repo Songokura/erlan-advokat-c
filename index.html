@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ВАРИАНТ C - «Кабинет. Ночь. Лампа.»
+     Контакты - заглушки, менять в четырёх местах разом:
+       1) шапка, кнопка звонка (.call)
+       2) контакты, ссылки tel: и wa.me
+       3) липкая панель внизу на мобильном (.bar)
+       4) script.js - константа WA (номер WhatsApp для формы)
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<title>Адвокат Ерлан Т., Астана: крупные споры от 10 млн ₸, взыскано свыше 4,6 млрд ₸</title>
+<meta name="description" content="Адвокат по крупным спорам о деньгах и имуществе в Астане. Практика с 2001 года, по делам доверителей взыскано свыше 4,6 млрд тенге. Долги, застройщики, раздел имущества, налоговые доначисления, уголовные дела по бизнесу. Веду дело до исполнения решения.">
+
+<!-- Прототип на показ клиенту: в поиск не отдаём. Перед боевым запуском строку убрать. -->
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0A0A0C">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Адвокат Ерлан Т. Крупные споры о деньгах и имуществе">
+<meta property="og:description" content="Практика с 2001 года. По делам доверителей взыскано свыше 4,6 млрд тенге. Веду дело до исполнения решения, моя работа взыскивается с проигравшей стороны.">
+<meta property="og:image" content="assets/og-image.jpg?v=20260904-1">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Язык страницы: ?lang=ru|kk в адресе главнее localStorage, чтобы русское
+     объявление Google Ads всегда открывало русскую версию. -->
+<link rel="alternate" hreflang="ru" href="https://songokura.github.io/erlan-advokat-c/?lang=ru">
+<link rel="alternate" hreflang="kk" href="https://songokura.github.io/erlan-advokat-c/?lang=kk">
+<link rel="alternate" hreflang="x-default" href="https://songokura.github.io/erlan-advokat-c/">
+
+<link rel="icon" href="favicon.ico?v=20260904-1" sizes="any">
+<link rel="icon" href="assets/favicon.svg?v=20260904-1" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png?v=20260904-1" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png?v=20260904-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260904-1">
+<link rel="preload" as="image" href="assets/portrait.webp" fetchpriority="high">
+
+<noscript><style>
+.pw{--enter:1;--stay:1;--exit:0;--intro:1}
+.txt{opacity:1!important;transform:none!important}
+.num{visibility:visible}
+.case,.card{--lit:1}
+</style></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Attorney",
+  "name": "Адвокат Ерлан Т.",
+  "description": "Адвокат по крупным спорам о деньгах и имуществе. Практика с 2001 года.",
+  "telephone": "+7 700 000 00 00",
+  "areaServed": "Астана, Казахстан",
+  "address": {"@type": "PostalAddress", "addressLocality": "Астана", "addressCountry": "KZ"},
+  "foundingDate": "2001",
+  "priceRange": "от 10 000 000 KZT"
+}
+</script>
+</head>
+<body>
+
+<!-- ─────────── ШАПКА ─────────── -->
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#top" data-nav>Ерлан Т.<small data-i18n="brand.sub">адвокат, практика с 2001 года</small></a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#dela" data-nav data-i18n="nav.dela">Ваш случай</a>
+      <a href="#opyt" data-nav data-i18n="nav.opyt">Мои дела</a>
+      <a href="#poryadok" data-nav data-i18n="nav.poryadok">Как идёт дело</a>
+      <a href="#raschet" data-nav data-i18n="nav.raschet">Кто платит</a>
+      <a href="#faq" data-nav data-i18n="nav.faq">Вопросы</a>
+    </nav>
+    <div class="hdr-right">
+      <div class="lang" role="group" aria-label="Язык сайта">
+        <button type="button" data-lang="ru" class="is-active" aria-pressed="true" lang="ru">RU</button>
+        <button type="button" data-lang="kk" aria-pressed="false" lang="kk">KZ</button>
+      </div>
+      <a class="call" href="tel:+77000000000" data-track="call" aria-label="Позвонить">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>
+      </a>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- Оверлей меню лежит вне шапки: у шапки нет фильтров, но так надёжнее. -->
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Меню">
+    <a href="#dela" data-nav data-i18n="nav.dela">Ваш случай</a>
+    <a href="#opyt" data-nav data-i18n="nav.opyt">Мои дела</a>
+    <a href="#poryadok" data-nav data-i18n="nav.poryadok">Как идёт дело</a>
+    <a href="#raschet" data-nav data-i18n="nav.raschet">Кто платит</a>
+    <a href="#faq" data-nav data-i18n="nav.faq">Вопросы</a>
+    <a href="#zayavka" data-nav data-i18n="nav.zayavka">Заявка</a>
+  </nav>
+  <div class="menu-foot">
+    <a href="tel:+77000000000" data-track="call">+7 700 000 00 00</a>
+    <a href="https://wa.me/77000000000" target="_blank" rel="noopener" data-track="wa">WhatsApp</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ─────────── ГЕРОЙ: портрет под лампой ─────────── -->
+<div class="pw pw-hero" id="hero">
+  <section class="plate hero">
+    <div class="cone">
+      <img class="ly ly-dim" src="assets/portrait.webp" alt="Адвокат Ерлан Т. в кабинете" width="896" height="1200" fetchpriority="high" decoding="async">
+      <img class="ly ly-3" src="assets/portrait.webp" alt="" aria-hidden="true" width="896" height="1200" decoding="async">
+      <img class="ly ly-2" src="assets/portrait.webp" alt="" aria-hidden="true" width="896" height="1200" decoding="async">
+      <img class="ly ly-1" src="assets/portrait.webp" alt="" aria-hidden="true" width="896" height="1200" decoding="async">
+      <div class="ly ly-tint"></div>
+      <div class="ly ly-haze"></div>
+      <div class="ly ly-shade"></div>
+    </div>
+    <div class="txt hero-txt">
+      <p class="kicker" data-i18n="hero.kicker">Астана · адвокат · практика с 2001 года</p>
+      <h1 class="h1 fit"><span data-i18n="hero.h1a">Адвокат</span><br><span class="h1-sub" data-i18n="hero.h1b">по крупным спорам</span></h1>
+      <p class="lead" data-i18n="hero.lead">Взыскано свыше 4,6 млрд ₸ по делам доверителей. Беру споры от 10 млн ₸ и веду их до исполнения решения: моя работа взыскивается с проигравшей стороны.</p>
+      <div class="btns">
+        <a class="btn btn-solid" href="https://wa.me/77000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D1%80%D0%BB%D0%B0%D0%BD.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B4%D0%B5%D0%BB%D0%BE." target="_blank" rel="noopener" data-track="wa" data-i18n="btn.wa">Написать в WhatsApp</a>
+        <a class="btn btn-ghost" href="#opyt" data-nav data-i18n="btn.cases">Мои дела</a>
+      </div>
+    </div>
+    <div class="mq" aria-hidden="true">
+      <div class="mq-track">
+        <ul class="mq-list" data-mq></ul>
+        <ul class="mq-list" data-mq></ul>
+        <ul class="mq-list" data-mq></ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ─────────── ПЛИТА «ЦИФРЫ»: главная сумма ─────────── -->
+<div class="pw pw-itogi" id="itogi">
+  <section class="plate itogi">
+    <div class="cone cone-light">
+      <div class="ly ly-glow3"></div>
+      <div class="ly ly-glow2"></div>
+      <div class="ly ly-glow1"></div>
+    </div>
+    <div class="txt itogi-txt">
+      <p class="kicker" data-i18n="itogi.kicker">Итог по решениям судов</p>
+      <p class="bignum fit"><span class="num" data-n="4623788685">4 623 788 685</span> <span class="cur">₸</span></p>
+      <p class="lead" data-i18n="itogi.cap">взыскано по делам доверителей и подтверждено судебными актами</p>
+      <ul class="stats">
+        <li><b>25</b><span data-i18n="itogi.s1">лет практики</span></li>
+        <li><b>2,98 <i data-i18n="u.bln">млрд</i> ₸</b><span data-i18n="itogi.s2">крупнейшее дело</span></li>
+        <li><b>27</b><span data-i18n="itogi.s3">дел с исходом в пользу доверителя</span></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- ─────────── ВАШ СЛУЧАЙ: направления с якорями ─────────── -->
+<section class="sec" id="dela">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker" data-i18n="dela.kicker">Ваш случай</p>
+      <h2 class="h2" data-i18n="dela.h2">С чем приходят ко мне</h2>
+      <p class="lead" data-i18n="dela.lead">Три группы споров. Порог - 10 млн ₸: дела меньше не беру, чтобы каждое вести лично и до конца.</p>
+    </div>
+
+    <div class="group">
+      <h3 class="h3" data-i18n="g.money">Вам должны деньги</h3>
+      <div class="cards">
+        <article class="card" id="dolg">
+          <h4 data-i18n="d.dolg.t">Долг по договору или поставке</h4>
+          <p data-i18n="d.dolg.l">Работу сдали, товар отгрузили - денег нет.</p>
+          <p class="proof" data-i18n="d.dolg.p">5 250 000 ₸ по расписке, взыскано полностью, 2018</p>
+        </article>
+        <article class="card" id="partner">
+          <h4 data-i18n="d.partner.t">Спор с партнёром по бизнесу</h4>
+          <p data-i18n="d.partner.l">Доли, сделки, помещения, которые не отдают.</p>
+          <p class="proof" data-i18n="d.partner.p">Помещение истребовано из чужого владения, 2018</p>
+        </article>
+        <article class="card" id="bank">
+          <h4 data-i18n="d.bank.t">Спор с банком или нацкомпанией</h4>
+          <p data-i18n="d.bank.l">Залоги, аресты, требования крупной стороны.</p>
+          <p class="proof" data-i18n="d.bank.p">Иск о недействительности залога отклонён, устоял в апелляции, 2019</p>
+        </article>
+        <article class="card" id="dtp">
+          <h4 data-i18n="d.dtp.t">Недоплата по ДТП</h4>
+          <p data-i18n="d.dtp.l">Страховой выплаты не хватило, виновник не платит.</p>
+          <p class="proof" data-i18n="d.dtp.p">Виновник осуждён, потерпевшей присуждено 700 000 ₸, 2018</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <h3 class="h3" data-i18n="g.property">Спор об имуществе</h3>
+      <div class="cards">
+        <article class="card" id="razvod">
+          <h4 data-i18n="d.razvod.t">Раздел имущества при разводе</h4>
+          <p data-i18n="d.razvod.l">Квартиры, дома, доли в бизнесе.</p>
+          <p class="proof" data-i18n="d.razvod.p">Беру споры от 10 млн ₸</p>
+        </article>
+        <article class="card" id="zastroyshchik">
+          <h4 data-i18n="d.zastr.t">Застройщик не отдаёт помещение</h4>
+          <p data-i18n="d.zastr.l">Долгострой, паевые взносы, предварительные договоры.</p>
+          <p class="proof" data-i18n="d.zastr.p">2 980 969 609 ₸ взыскано с двух застройщиков, 2020</p>
+        </article>
+        <article class="card" id="zemlya">
+          <h4 data-i18n="d.zemlya.t">Земельный спор</h4>
+          <p data-i18n="d.zemlya.l">Участок отбирают, арестовывают, не дают оформить.</p>
+          <p class="proof" data-i18n="d.zemlya.p">Участок и недвижимость освобождены от арестов, 2017</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <h3 class="h3" data-i18n="g.state">Против вас государство</h3>
+      <div class="cards">
+        <article class="card" id="nalog">
+          <h4 data-i18n="d.nalog.t">Налоговые и таможенные доначисления</h4>
+          <p data-i18n="d.nalog.l">Уведомление требует доплатить - оспариваю.</p>
+          <p class="proof" data-i18n="d.nalog.p">4 711 610 ₸ доначислений признаны незаконными полностью, 2025</p>
+        </article>
+        <article class="card" id="ugolovka">
+          <h4 data-i18n="d.ugol.t">Уголовное дело по бизнесу</h4>
+          <p data-i18n="d.ugol.l">Защита предпринимателя и возмещение ущерба потерпевшему.</p>
+          <p class="proof" data-i18n="d.ugol.p">70 070 000 ₸ ущерба от преступления взысканы деньгами, 2024</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── МОИ ДЕЛА: реестр сумм ─────────── -->
+<section class="sec sec-opyt" id="opyt">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker" data-i18n="opyt.kicker">Мои дела</p>
+      <h2 class="h2" data-i18n="opyt.h2">Взыскано и возвращено доверителям</h2>
+      <p class="lead" data-i18n="opyt.lead">Суммы - из решений судов. Без имён, названий компаний и номеров дел.</p>
+    </div>
+
+    <div class="ledger">
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="2980969609">2 980 969 609</span> <span class="cur">₸</span></p>
+        <p class="case-txt" data-i18n="c.a1">Долгострой: договоры с двумя застройщиками расторгнуты, деньги дольщиков взысканы солидарно, комплекс с проектной документацией передан кооперативу</p>
+        <p class="case-meta"><span data-i18n="r.coop">представлял кооператив дольщиков</span><span>2020</span></p>
+      </article>
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="1020267830">1 020 267 830</span> <span class="cur">₸</span></p>
+        <p class="case-txt" data-i18n="c.a2">Тот же комплекс, вторая группа домов: предварительные договоры купли-продажи расторгнуты, оплаченное взыскано</p>
+        <p class="case-meta"><span data-i18n="r.coop">представлял кооператив дольщиков</span><span>2020</span></p>
+      </article>
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="589985867">589 985 867</span> <span class="cur">₸</span></p>
+        <p class="case-txt" data-i18n="c.a3">Ещё один замороженный жилой комплекс: договоры расторгнуты, суммы взысканы и переданы в кооператив как паевые взносы</p>
+        <p class="case-meta"><span data-i18n="r.plaintiff">представлял истца</span><span>2020</span></p>
+      </article>
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="70070000">70 070 000</span> <span class="cur">₸</span></p>
+        <p class="case-txt" data-i18n="c.a4">Ущерб от преступления в долевом строительстве: апелляция изменила решение, взыскано деньгами, а не помещениями</p>
+        <p class="case-meta"><span data-i18n="r.coop2">представлял кооператив</span><span>2024</span></p>
+      </article>
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="18800000">18 800 000</span> <span class="cur">₸</span></p>
+        <p class="case-txt" data-i18n="c.a5">Два дольщика: первая инстанция отказала, апелляция отменила решение и удовлетворила иск полностью</p>
+        <p class="case-meta"><span data-i18n="r.plaintiffs">представлял истцов</span><span>2020</span></p>
+      </article>
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="5250000">5 250 000</span> <span class="cur">₸</span></p>
+        <p class="case-txt" data-i18n="c.a6">Деньги на хранении по расписке не вернули: взысканы полностью, с пошлиной и расходами на представителя</p>
+        <p class="case-meta"><span data-i18n="r.plaintiff">представлял истца</span><span>2018</span></p>
+      </article>
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="4761450">4 761 450</span> <span class="cur">₸</span></p>
+        <p class="case-txt" data-i18n="c.a7">Десять клиентов турфирмы: договоры поручения расторгнуты, оплата возвращена каждому</p>
+        <p class="case-meta"><span data-i18n="r.plaintiffs">представлял истцов</span><span>2018</span></p>
+      </article>
+    </div>
+
+    <h3 class="h3 h3-def" data-i18n="opyt.def">Отбились: иск к доверителю отклонён</h3>
+    <div class="ledger ledger-def">
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="4711610">4 711 610</span> <span class="cur">₸</span> <span class="tag" data-i18n="t.cancel">списано</span></p>
+        <p class="case-txt" data-i18n="c.b1">Таможня доначислила пошлины и налоги: апелляция признала уведомление незаконным полностью</p>
+        <p class="case-meta"><span data-i18n="r.def">представлял ответчика</span><span>2025</span></p>
+      </article>
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="2800000">2 800 000</span> <span class="cur">₸</span> <span class="tag" data-i18n="t.none">не взыскано</span></p>
+        <p class="case-txt" data-i18n="c.b2">Бывший водитель требовал зарплату с предпринимателя без трудового договора: в иске отказано</p>
+        <p class="case-meta"><span data-i18n="r.def">представлял ответчика</span><span>2022</span></p>
+      </article>
+      <article class="case">
+        <p class="case-sum case-word" data-i18n="c.b3s">Права сохранены</p>
+        <p class="case-txt" data-i18n="c.b3">ДТП с грузовиком: производство по административному делу прекращено за отсутствием состава</p>
+        <p class="case-meta"><span data-i18n="r.def">представлял ответчика</span><span>2022</span></p>
+      </article>
+      <article class="case">
+        <p class="case-sum"><span class="num" data-n="700000">700 000</span> <span class="cur">₸</span> <span class="tag" data-i18n="t.none">не взыскано</span></p>
+        <p class="case-txt" data-i18n="c.b8">Иск о компенсации морального вреда отклонён</p>
+        <p class="case-meta"><span data-i18n="r.def">представлял ответчика</span><span>2009</span></p>
+      </article>
+    </div>
+    <p class="note" data-i18n="opyt.note">В реестре 27 дел с 2009 по 2026 год. Решения показываю на встрече.</p>
+  </div>
+</section>
+
+<!-- ─────────── ФОТО-ПЛИТА: до денег ─────────── -->
+<div class="pw" id="do-deneg">
+  <section class="plate photo">
+    <div class="cone cone-photo">
+      <img class="ly ly-dim" src="assets/court.webp" alt="Коридор суда" width="1200" height="896" loading="lazy" decoding="async">
+      <img class="ly ly-3" src="assets/court.webp" alt="" aria-hidden="true" width="1200" height="896" loading="lazy" decoding="async">
+      <img class="ly ly-2" src="assets/court.webp" alt="" aria-hidden="true" width="1200" height="896" loading="lazy" decoding="async">
+      <img class="ly ly-1" src="assets/court.webp" alt="" aria-hidden="true" width="1200" height="896" loading="lazy" decoding="async">
+      <div class="ly ly-tint"></div>
+      <div class="ly ly-shade"></div>
+    </div>
+    <div class="txt">
+      <p class="kicker" data-i18n="dd.kicker">До исполнения</p>
+      <h2 class="h2 h2-plate" data-i18n="dd.h2">Веду дело до денег, а не до решения</h2>
+      <p class="lead" data-i18n="dd.lead">Решение суда - бумага. Исполнительный лист и деньги на счёте - результат.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ─────────── КАК ИДЁТ ДЕЛО ─────────── -->
+<section class="sec" id="poryadok">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker" data-i18n="p.kicker">Как идёт дело</p>
+      <h2 class="h2" data-i18n="p.h2">Четыре шага от звонка до денег</h2>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><div><h4 data-i18n="p.s1t">Звонок</h4><p data-i18n="p.s1">Коротко: что случилось и какая сумма.</p></div></li>
+      <li><span class="n">02</span><div><h4 data-i18n="p.s2t">Полчаса с документами</h4><p data-i18n="p.s2">Прямой ответ, есть ли у дела перспектива.</p></div></li>
+      <li><span class="n">03</span><div><h4 data-i18n="p.s3t">Цена и план</h4><p data-i18n="p.s3">Стоимость работы фиксируется и входит в иск.</p></div></li>
+      <li><span class="n">04</span><div><h4 data-i18n="p.s4t">Решение и исполнение</h4><p data-i18n="p.s4">Суд, апелляция, исполнительный лист, деньги.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ─────────── КТО ПЛАТИТ ─────────── -->
+<section class="sec sec-raschet" id="raschet">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker" data-i18n="rs.kicker">Кто платит</p>
+      <h2 class="h2" data-i18n="rs.h2">Мою работу оплачивает проигравшая сторона</h2>
+    </div>
+    <div class="eq">
+      <div class="eq-item"><span data-i18n="rs.debt">Долг</span><b><span class="num" data-n="10000000">10 000 000</span> ₸</b></div>
+      <span class="eq-op">+</span>
+      <div class="eq-item eq-fee"><span data-i18n="rs.fee">Моя работа</span><b><span class="num" data-n="700000">700 000</span> ₸</b></div>
+      <span class="eq-op">=</span>
+      <div class="eq-item eq-total"><span data-i18n="rs.total">В иске</span><b><span class="num" data-n="10700000">10 700 000</span> ₸</b></div>
+    </div>
+    <p class="lead center" data-i18n="rs.cap">Пример: 7 % от суммы долга. Беру только дела, в которых вижу победу.</p>
+  </div>
+</section>
+
+<!-- ─────────── ФОТО-ПЛИТА: кабинет ─────────── -->
+<div class="pw" id="kabinet">
+  <section class="plate photo">
+    <div class="cone cone-photo">
+      <img class="ly ly-dim" src="assets/lamp.webp" alt="Кабинет ночью, настольная лампа" width="1400" height="933" loading="lazy" decoding="async">
+      <img class="ly ly-3" src="assets/lamp.webp" alt="" aria-hidden="true" width="1400" height="933" loading="lazy" decoding="async">
+      <img class="ly ly-2" src="assets/lamp.webp" alt="" aria-hidden="true" width="1400" height="933" loading="lazy" decoding="async">
+      <img class="ly ly-1" src="assets/lamp.webp" alt="" aria-hidden="true" width="1400" height="933" loading="lazy" decoding="async">
+      <div class="ly ly-tint"></div>
+      <div class="ly ly-shade"></div>
+    </div>
+    <div class="txt">
+      <p class="kicker" data-i18n="k.kicker">Что принести</p>
+      <h2 class="h2 h2-plate" data-i18n="k.h2">Полчаса с документами - и прямой ответ</h2>
+      <p class="lead" data-i18n="k.lead">Договор, акты, платёжки, переписка. По ДТП - протокол, постановление, полис.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ─────────── ВОПРОСЫ ─────────── -->
+<section class="sec" id="faq">
+  <div class="wrap wrap-narrow">
+    <div class="head">
+      <p class="kicker" data-i18n="f.kicker">Вопросы</p>
+      <h2 class="h2" data-i18n="f.h2">Что спрашивают до звонка</h2>
+    </div>
+    <details class="qa" open>
+      <summary data-i18n="f.q1">Есть ли у моего дела шанс?</summary>
+      <p data-i18n="f.a1">Скажу после получаса с документами. Если победы не вижу - за дело не берусь.</p>
+    </details>
+    <details class="qa">
+      <summary data-i18n="f.q2">Сколько стоит ваша работа?</summary>
+      <p data-i18n="f.a2">Фиксированная сумма, около 7 % от цены иска. Она входит в иск и взыскивается с проигравшей стороны.</p>
+    </details>
+    <details class="qa">
+      <summary data-i18n="f.q3">Когда я получу деньги?</summary>
+      <p data-i18n="f.a3">После решения идёт исполнение: исполнительный лист и взыскание. Веду дело до этого этапа включительно.</p>
+    </details>
+    <details class="qa">
+      <summary data-i18n="f.q4">Берёте дела меньше 10 млн ₸?</summary>
+      <p data-i18n="f.a4">Нет. Порог нужен, чтобы каждое дело вести лично и до конца.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ─────────── ЗАЯВКА И КОНТАКТЫ ─────────── -->
+<section class="sec sec-contact" id="zayavka">
+  <div class="wrap wrap-narrow">
+    <div class="head">
+      <p class="kicker" data-i18n="z.kicker">Заявка</p>
+      <h2 class="h2" data-i18n="z.h2">Опишите, что случилось</h2>
+      <p class="lead" data-i18n="z.lead">Отвечу лично. Полчаса с документами - и вы знаете, есть ли у дела перспектива.</p>
+    </div>
+    <form class="form" id="form" novalidate>
+      <label><span data-i18n="z.name">Имя</span><input type="text" name="name" autocomplete="name" required data-i18n-ph="z.name.ph" placeholder="Как к вам обращаться"></label>
+      <label><span data-i18n="z.phone">Телефон</span><input type="tel" name="phone" autocomplete="tel" required inputmode="tel" placeholder="+7 ___ ___ __ __"></label>
+      <label><span data-i18n="z.msg">Что случилось и какая сумма</span><textarea name="msg" rows="4" data-i18n-ph="z.msg.ph" placeholder="Например: заказчик не платит по договору, 24 млн ₸"></textarea></label>
+      <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-solid btn-wide" type="submit" data-i18n="z.send">Отправить в WhatsApp</button>
+      <p class="form-err" id="ferr" hidden data-i18n="z.err">Заполните имя и телефон.</p>
+      <p class="form-ok" id="fok" hidden data-i18n="z.ok">Спасибо. Открылся WhatsApp с вашим сообщением - отправьте его.</p>
+    </form>
+
+    <div class="contacts">
+      <a class="phone" href="tel:+77000000000" data-track="call">+7 700 000 00 00</a>
+      <p class="addr" data-i18n="z.addr">Астана · приём по договорённости</p>
+      <div class="btns">
+        <a class="btn btn-wa" href="https://wa.me/77000000000" target="_blank" rel="noopener" data-track="wa">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.9 2.9 4.6 4 1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3z"/></svg>
+          WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="tel:+77000000000" data-track="call" data-i18n="btn.call">Позвонить</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p data-i18n="foot.l1">Адвокат Ерлан Т. · Астана · практика с 2001 года</p>
+    <p class="foot-sub" data-i18n="foot.l2">Суммы и исходы - из судебных актов. Данные участников дел не раскрываются.</p>
+  </div>
+</footer>
+
+<!-- Липкая панель на мобильном -->
+<div class="bar" id="bar" aria-hidden="true">
+  <a href="tel:+77000000000" data-track="call" data-i18n="btn.call">Позвонить</a>
+  <a class="bar-wa" href="https://wa.me/77000000000" target="_blank" rel="noopener" data-track="wa">WhatsApp</a>
+</div>
+
+<script src="script.js?v=20260904-1" defer></script>
+</body>
+</html>
