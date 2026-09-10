@@ -16,8 +16,8 @@
   var SHEET = '1vge-THOUQHmAH-iiY8A0I_CMMVY6qpjqQm4lfEu4y44';   // «Адвокат Ерлан - статьи на сайт»
   var GID = '0';
   var URL_TQ = 'https://docs.google.com/spreadsheets/d/' + SHEET + '/gviz/tq?tqx=out:json&gid=' + GID + '&headers=1';
-  var CACHE_KEY = 'art:' + SHEET;
-  var CACHE_TTL = 5 * 60 * 1000;                                 // 5 минут: правку в таблице видно почти сразу
+  /* кэша нет намеренно: клиент правит таблицу и сразу обновляет страницу,
+     любой кэш выглядит как «да/нет ни на что не влияет» */
 
   var doc = document, root = doc.documentElement;
   var page = doc.body.getAttribute('data-page') || 'index';
@@ -122,10 +122,13 @@
      иначе у клиента «вставил ссылку - ничего не видно» */
   function imgUrl(u) {
     u = String(u || '').trim();
-    if (!/^https?:\/\//i.test(u)) return '';
-    var m = u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^]*id=)([\w-]{20,})/);
+    if (!u) return '';
+    /* ссылка на файл Google Диска в любом её виде - и просто вставленный id файла */
+    var m = u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^]*?id=|thumbnail\?[^]*?id=)([\w-]{20,})/)
+         || (/^[\w-]{25,}$/.test(u) ? [null, u] : null);
     if (m) return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1600';
-    return u;
+    if (/^https?:\/\//i.test(u)) return u;
+    return '';
   }
 
   function fmtDate(d) {
@@ -192,7 +195,8 @@
     if (i) return new Date(+i[1], +i[2] - 1, +i[3]);
     return null;
   }
-  function yes(s) { return /^(да|иә|ия|yes|y|true|1|\+|v|✓)$/i.test(String(s || '').trim()); }
+  /* галочка, «да», «+», TRUE - показываем; «нет», «черновик», пусто - нет */
+  function yes(s) { return /^(да|иа|иә|ия|yes|y|true|1|\+|v|х|x|✓|✔|показывать|вкл|on)$/i.test(String(s || '').trim()); }
 
   function parse(json) {
     var rows = (json.table && json.table.rows) || [];
@@ -226,28 +230,14 @@
   }
 
   function load() {
-    return new Promise(function (resolve, reject) {
-      var cached = null;
-      try {
-        var raw = sessionStorage.getItem(CACHE_KEY);
-        if (raw) {
-          var obj = JSON.parse(raw);
-          if (Date.now() - obj.at < CACHE_TTL) cached = obj.json;
-        }
-      } catch (e) {}
-      if (cached) { resolve(parse(cached)); return; }
-
-      fetch(URL_TQ, { credentials: 'omit' })
-        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
-        .then(function (txt) {
-          var i = txt.indexOf('{'), j = txt.lastIndexOf('}');
-          if (i < 0 || j < 0) throw new Error('bad payload');
-          var json = JSON.parse(txt.slice(i, j + 1));
-          try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), json: json })); } catch (e) {}
-          resolve(parse(json));
-        })
-        .catch(reject);
-    });
+    /* «&_=» глушит кэш браузера и CDN: без него правка в таблице догоняет сайт минутами */
+    return fetch(URL_TQ + (URL_TQ.indexOf('?') < 0 ? '?' : '&') + '_=' + Date.now(), { credentials: 'omit', cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(function (txt) {
+        var i = txt.indexOf('{'), j = txt.lastIndexOf('}');
+        if (i < 0 || j < 0) throw new Error('bad payload');
+        return parse(JSON.parse(txt.slice(i, j + 1)));
+      });
   }
 
   /* ───────── карточка списка ───────── */
