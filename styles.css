@@ -438,3 +438,8 @@ html.no-plate .plate{position:relative;min-height:0;height:auto}
 /* адрес в контактах - ссылка на карту */
 .addr a{color:inherit;text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:3px}
 .addr a:hover{color:var(--fog)}
+/* подвал: адрес, телефон, часы - на всех страницах */
+.foot-addr{margin-top:6px;line-height:1.6}
+.foot-addr a{color:var(--fog);text-decoration:none;white-space:nowrap}
+.foot-addr span:last-child{white-space:nowrap}
+.foot-addr a:hover{color:var(--brass2)}
