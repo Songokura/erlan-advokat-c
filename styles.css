@@ -435,3 +435,6 @@ html.no-plate .plate{position:relative;min-height:0;height:auto}
   .art-text blockquote{padding:16px 18px;font-size:16px}
   .sec-art{padding-top:clamp(44px,9vw,72px)}
 }
+/* адрес в контактах - ссылка на карту */
+.addr a{color:inherit;text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:3px}
+.addr a:hover{color:var(--fog)}
