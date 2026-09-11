@@ -287,6 +287,9 @@
       a.setAttribute('href', path + (path.indexOf('?') < 0 ? '?' : '&') + 'lang=' + lang + hash);
     });
     if (persist) { try { localStorage.setItem('lang', lang); } catch (e) {} }
+    /* canonical под язык, иначе ?lang=kk спорит с hreflang */
+    var cn = doc.querySelector('link[rel="canonical"]');
+    if (cn) cn.setAttribute('href', cn.href.split('?')[0] + (lang === 'kk' ? '?lang=kk' : ''));
     fitAll();
     doc.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
   }
