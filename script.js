@@ -10,7 +10,7 @@
 (function () {
   'use strict';
 
-  var WA = '77783751093';                 // WhatsApp адвоката
+  var WA = '77015350302';                 // WhatsApp адвоката
   var doc = document, root = doc.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var clamp = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };

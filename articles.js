@@ -21,7 +21,7 @@
 
   var doc = document, root = doc.documentElement;
   var page = doc.body.getAttribute('data-page') || 'index';
-  var WA = '77783751093';
+  var WA = '77015350302';
 
   /* ───────── словарь интерфейса раздела ─────────
      Главная переводится своим script.js; здесь только строки, которых там нет,
